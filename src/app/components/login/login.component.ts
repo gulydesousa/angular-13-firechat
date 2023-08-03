@@ -15,7 +15,9 @@ export class LoginComponent {
 
   
   login(proveedor: string) {
-    if (proveedor === "google") {
+   
+    switch (proveedor) {
+      case "google":
       this.chatService
         .loginGoogle()
         .then((data) => {
@@ -24,17 +26,28 @@ export class LoginComponent {
         .catch((error) => {
           console.log(error);
         });
-    } else {
-      
-      this.chatService
-        .loginGithub()
+        break;
+      case "facebook":
+        this.chatService
+        .loginFacebook()
         .then((data) => {
-       
           console.log(this.chatService.usuario);
         })
         .catch((error) => {
           console.log(error);
         });
+        break;
+     default:
+      this.chatService
+        .loginGithub()
+        .then((data) => {
+          console.log(this.chatService.usuario);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+        break;
+
+     }
     }
-  }
 }

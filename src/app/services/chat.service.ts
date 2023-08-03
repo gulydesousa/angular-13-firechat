@@ -25,7 +25,7 @@ import { Observable, map, single } from 'rxjs';
 
 import { Mensaje } from '../interface/mensaje.interface';
 import { Usuario } from '../interface/usuario.interface';
-import { browserSessionPersistence, getAuth, setPersistence, signOut } from 'firebase/auth';
+import { FacebookAuthProvider, browserSessionPersistence, getAuth, setPersistence, signOut } from 'firebase/auth';
 
 @Injectable()
 export class ChatService {
@@ -81,8 +81,7 @@ export class ChatService {
 
   logout() {
     this.usuario = { nombre: '', uid: '' };
-
-    const a = getAuth();
+    
     return this.auth.signOut().finally(() => {console.log('Sesión cerrada', this.auth.currentUser);}) ;
   }
 
@@ -94,5 +93,10 @@ export class ChatService {
 
   loginGithub() {
     return signInWithPopup(this.auth, new GithubAuthProvider());
+  }
+
+  
+  loginFacebook() {
+   return signInWithPopup(this.auth, new FacebookAuthProvider());
   }
 }

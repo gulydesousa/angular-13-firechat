@@ -28,8 +28,8 @@ const firebaseConfig = {
     AppRoutingModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [
     ChatService,
