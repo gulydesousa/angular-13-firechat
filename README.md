@@ -1,6 +1,12 @@
 # Firechat
+<ul>
+<li>Descargar y descomprimir el zip. </li>
+<li>Abrir la carpeta en el VSCode ejecutar</li>
+<li>npm i</li>
+<li>ng serve -o</li>
+</ul>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+
 
 ## Development server
 
